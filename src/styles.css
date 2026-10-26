@@ -1,0 +1,59 @@
+/* SATARK — Geist / Vercel design system (from DESIGN-vercel.md).
+   Canvas #fafafa, ink #171717, hairline #ebebeb. Colour is confined to the
+   hero mesh gradient; everywhere else ink + greys + hairlines carry the UI.
+   Fonts: system stack approximating Geist (Inter/Arial fallback, no remote
+   font fetch, so the app works fully offline). */
+:root{
+  --ink:#171717; --body:#4d4d4d; --mute:#8f8f8f; --faint:#a1a1a1;
+  --hairline:#ebebeb; --hairline-soft:#f2f2f2; --canvas:#fafafa; --elevated:#ffffff;
+  --link:#0070f3; --link-deep:#0761d1; --link-soft:#d3e5ff;
+  --error:#ee0000; --warning:#f5a623; --warning-soft:#ffefcf;
+  --sans:Inter,Geist,Arial,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,JetBrains Mono,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--link)} button{font-family:inherit;cursor:pointer}
+input,select{font-family:inherit}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.mono{font-family:var(--mono)}
+.btn-pill{background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:100px;padding:12px 22px;font-size:16px;font-weight:500;line-height:20px}
+.btn-pill-white{background:#fff;color:var(--ink);border:1px solid var(--hairline);border-radius:100px;padding:12px 22px;font-size:16px;font-weight:500}
+.btn-sm{background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:6px;padding:7px 12px;font-size:14px;font-weight:500}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--hairline);border-radius:6px;padding:7px 12px;font-size:14px;font-weight:500}
+.btn-ghost:disabled,.btn-sm:disabled{opacity:.45;cursor:default}
+.input{background:#fff;color:var(--ink);border:1px solid var(--hairline);border-radius:6px;padding:8px 12px;font-size:14px;width:100%}
+.card{background:#fff;border:1px solid var(--hairline);border-radius:12px;padding:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--hairline);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--body);background:#fff}
+/* Semantic colours only from DESIGN-vercel.md: error #ee0000 / deep #c50000,
+   warning #f5a623 / soft #ffefcf, link #0070f3 / deep #0761d1 / soft #d3e5ff.
+   The design doc maps "success" to link blue — so no green success tint here. */
+.badge-high{background:#fff;color:#c50000;border-color:var(--error)}
+.badge-med{background:var(--warning-soft);color:#ab570a;border-color:var(--warning)}
+.badge-low{background:var(--link-soft);color:var(--link-deep);border-color:var(--link-soft)}
+.badge-ok{background:var(--link-soft);color:var(--link-deep);border-color:var(--link-soft)}
+h2{letter-spacing:-1.28px}
+h3{letter-spacing:-0.4px}
+.hero-mesh{background:
+  radial-gradient(600px 300px at 20% 20%, rgba(0,124,240,.18), transparent 60%),
+  radial-gradient(600px 300px at 80% 10%, rgba(255,0,128,.14), transparent 60%),
+  radial-gradient(500px 300px at 50% 90%, rgba(0,223,216,.16), transparent 60%),
+  radial-gradient(400px 250px at 90% 80%, rgba(249,203,40,.18), transparent 60%), var(--canvas)}
+.topnav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--hairline);background:var(--canvas);position:sticky;top:0;z-index:20}
+.layout{display:flex;min-height:calc(100vh - 53px)}
+.sidebar{width:260px;flex-shrink:0;background:rgba(255,255,255,.6);border-right:1px solid var(--hairline);padding:12px;display:flex;flex-direction:column;gap:16px;overflow:auto}
+.navitem{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:6px;color:var(--mute);font-size:13px;cursor:pointer;border:0;background:transparent;width:100%;text-align:left}
+.navitem:hover{background:#f2f2f2;color:var(--ink)}
+.navitem.active{background:#f2f2f2;color:var(--ink);font-weight:500}
+.mapwrap{background:#fff;border:1px solid var(--hairline);border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{ text-align:left;color:var(--mute);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--hairline)}
+td{padding:6px 8px;border-bottom:1px solid var(--hairline-soft);vertical-align:top}
+.drawer{position:fixed;right:16px;top:70px;bottom:16px;width:380px;max-width:calc(100vw - 32px);background:#fff;border:1px solid var(--hairline);border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.12);padding:20px;overflow:auto;z-index:50}
+.overlay{position:fixed;inset:0;background:rgba(23,23,23,.35);z-index:40;display:flex;align-items:flex-start;justify-content:center;padding:5vh 16px;overflow:auto}
+.sheet{background:#fff;border:1px solid var(--hairline);border-radius:16px;padding:24px;width:100%;max-width:860px}
+@media (max-width:900px){
+  .layout{flex-direction:column}
+  .sidebar{width:100%;border-right:0;border-bottom:1px solid var(--hairline)}
+  .drawer{left:16px;width:auto}
+}
