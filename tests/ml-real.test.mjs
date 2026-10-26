@@ -10,8 +10,10 @@ import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import os from 'node:os';
+
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const out = '/tmp/satark-ml.cjs';
+const out = path.join(os.tmpdir(), 'satark-ml.cjs');
 buildSync({ entryPoints: ['src/lib/ml.ts'], bundle: true, platform: 'node', format: 'cjs', outfile: out, logLevel: 'silent', loader: { '.json': 'json' } });
 const ml = createRequire(import.meta.url)(out);
 const parity = JSON.parse(readFileSync(path.join(root, 'ml/parity_vectors.json'), 'utf8'));

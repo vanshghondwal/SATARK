@@ -8,11 +8,11 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'SATARK — See the sky. Verify the signal.',
+        name: 'SATARK: See the sky. Verify the signal.',
         short_name: 'SATARK',
-        description: 'Counter-drone monitoring simulation prototype (PS2). Synthetic data only.',
-        theme_color: '#171717',
-        background_color: '#fafafa',
+        description: 'Simulated drone monitoring and evidence-review platform. Synthetic data only.',
+        theme_color: '#090B10',
+        background_color: '#090B10',
         display: 'standalone',
         icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
       },

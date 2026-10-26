@@ -6,7 +6,10 @@ import { buildSync } from '../node_modules/esbuild/lib/main.js';
 import { writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
-const out = '/tmp/satark-engine.cjs';
+import os from 'node:os';
+import path from 'node:path';
+
+const out = path.join(os.tmpdir(), 'satark-engine.cjs');
 buildSync({ entryPoints: ['src/lib/engine.ts'], bundle: true, platform: 'node', format: 'cjs', outfile: out, logLevel: 'silent' });
 const { Engine } = createRequire(import.meta.url)(out);
 
@@ -102,7 +105,7 @@ test('replay snapshots are isolated: mutating a snapshot never changes live stat
   assert.equal(e.groups.length >= groupsBefore, true);
 });
 test('review restores when the same group regenerates after a fresh engine (reload)', () => {
-  // Regression: the demo script ends with "reload — the review is still
+  // Regression: the demo script ends with "reload: the review is still
   // there", but a fresh engine starts with an EMPTY live queue. The saved
   // decision must therefore reattach when the same seed + scenario
   // regenerates the same group (and the UI's Saved reviews strip shows it

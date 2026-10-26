@@ -82,7 +82,7 @@ export function SidebarNav({ activeId, onSelect, unresolved, onLogout }: { activ
         </button>
         {wsOpen && (
           <div style={{ position: 'absolute', top: 52, left: 0, right: 0, background: '#fff', border: '1px solid var(--hairline)', borderRadius: 8, boxShadow: '0 8px 24px rgba(0,0,0,.1)', zIndex: 30, padding: 4 }}>
-            {['SATARK', 'SATARK — Training'].map((w) => (
+            {['SATARK', 'SATARK: Training'].map((w) => (
               <button type="button" key={w} onClick={() => { setWs(w); setWsOpen(false); }} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 12px', borderRadius: 6, border: 0, background: ws === w ? '#f2f2f2' : 'transparent', cursor: 'pointer', fontSize: 13 }}>{w}</button>
             ))}
             <p style={{ fontSize: 12, color: 'var(--mute)', padding: '4px 12px', margin: 0 }}>Workspace name is a demo label only. It does not imply any official affiliation.</p>

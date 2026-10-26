@@ -5,10 +5,10 @@
 // harmonic-number form; that was the parity fix.
 //
 // MODEL UNAVAILABLE contract: the shipped model is a bundled local JSON asset,
-// so it cannot fail to "download" — but it CAN be malformed (bad export, empty
+// so it cannot fail to "download", but it CAN be malformed (bad export, empty
 // trees, wrong scaler length). evaluateMl therefore validates the model on
 // every call path and, on any failure, returns status 'UNAVAILABLE' with no
-// score at all — never a fabricated substitute. Callers must check status
+// score at all, never a fabricated substitute. Callers must check status
 // before printing a decision; rules baseline keeps working regardless.
 import modelJson from '../assets/model/isolation_forest.json';
 
